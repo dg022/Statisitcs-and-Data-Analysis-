@@ -1,0 +1,50 @@
+county
+"Name of the county"
+
+state
+"State name abbreviated"
+
+pop.density
+"1992 pop per miles^2"
+
+pop
+"1990 population"
+
+pop.change
+"% population change 1980-1992"
+
+age6574
+"% age 65-74, 1990"
+
+age75
+"% age >= 75, 1990"
+
+crime
+"serious crimes per 100,000 in 1991"
+
+college
+"% with bachelor's degree or higher of those age>=25"
+
+income
+"median family income, 1989 dollars"
+
+farm
+"farm population, % of total, 1990"
+
+democrat
+"% votes cast for democratic president"
+
+republican
+"% votes cast for republican president"
+
+Perot
+"% votes cast for Ross Perot"
+
+white
+"% white, 1990"
+
+black
+"% black, 1990"
+
+turnout
+"1992 votes for president / 1990 pop x 100"
