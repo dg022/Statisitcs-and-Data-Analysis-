@@ -1,0 +1,281 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>labeight251004930</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-03-13"><meta name="DC.source" content="labeight251004930.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%Name: David</span>
+<span class="comment">%StudentNumber: 251004930</span>
+
+dat = readtable(<span class="string">"diamonds.csv"</span>);
+
+<span class="comment">% a)</span>
+
+summary(dat)
+
+<span class="comment">%They (the numberical values) are not comparable units due to the varying</span>
+<span class="comment">%ranges between the varibles.</span>
+
+<span class="comment">% b)</span>
+ss =  grpFix(datasample(readtable(<span class="string">"diamonds.csv"</span>),2000));
+
+
+<span class="comment">% c)</span>
+[coeff,numscore,latent,tsquare,resultant] = pca(table2array(ss),<span class="string">'VariableWeights'</span>,<span class="string">'variance'</span>);
+<span class="comment">% d)</span>
+
+<span class="comment">% normalize the cofeffecitns of the vector</span>
+coef_norm = inv(diag(std(v))) * coeff ;
+
+pc1 = numscore(:,1);
+pc2 = numscore(:,2);
+pc3 = numscore(:,3);
+
+number = 7;
+
+
+[max2 maxtwo] = maxk(pc2,number);
+pc1_2max = pc1(maxtwo);
+
+[min2 mintwo] = mink(pc2,number);
+
+[max1 max] = maxk(pc1,number);
+pc2_1max = pc2(max);
+
+[min1 minone] = mink(pc1,number);
+pc2_1min = pc2(minone);
+
+pc1_2min = pc1(mintwo);
+
+[max3 maxthree] = maxk(pc3,number);
+pc1_3max = pc2(maxthree);
+
+[min3 ] = mink(pc3,number);
+pc1_3min = pc2(idxmin3);
+
+<span class="comment">% e) Plot the PCA on the first 2 principal component</span>
+
+figure
+scatter(pc1, pc2,200, <span class="string">'MarkerFaceColor'</span>,<span class="string">'red'</span>);
+alpha(0.1);
+grid();
+set(gca,<span class="string">'FontSize'</span>,20);
+
+figure
+scatter3(pc1,pc2,pc3,200, <span class="string">'MarkerFaceColor'</span>,<span class="string">'red'</span>);
+alpha(0.1);
+set(gca,<span class="string">'FontSize'</span>,20);
+
+figure();
+pareto(resultant);
+
+fprintf(<span class="string">"The first three components are responsible for  %0.2f % varience of the dataset given \n"</span>,sum(resultant(1:3)));
+
+<span class="comment">%this is a lot as it covers more than the majority of the varience, in just</span>
+<span class="comment">%three of the prinicpal componens</span>
+
+<span class="keyword">function</span> data =  grpFix(ss)
+ss.cut = grp2idx(ss.cut);
+ss.clarity = grp2idx(ss.clarity);
+ss.color =  grp2idx(ss.color);
+data = ss;
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Variables:
+
+    carat: 53940&times;1 double
+
+        Values:
+
+            Min         0.2  
+            Median      0.7  
+            Max        5.01  
+
+    cut: 53940&times;1 cell array of character vectors
+
+    color: 53940&times;1 cell array of character vectors
+
+    clarity: 53940&times;1 cell array of character vectors
+
+    depth: 53940&times;1 double
+
+        Values:
+
+            Min          43  
+            Median     61.8  
+            Max          79  
+
+    table: 53940&times;1 double
+
+        Values:
+
+            Min         43   
+            Median      57   
+            Max         95   
+
+    price: 53940&times;1 double
+
+        Values:
+
+            Min          326 
+            Median      2401 
+            Max        18823 
+
+</pre><pre class="codeoutput error">Invalid or deleted object.
+
+Error in linkaxes&gt;syncLimits (line 160)
+ruler = ax(1).(prop);
+
+Error in linkaxes (line 108)
+        syncLimits(ax,'ActiveXRuler');
+
+Error in pareto (line 105)
+    linkaxes([raxis, cax],'xy');
+
+Error in labeight251004930 (line 65)
+pareto(resultant); 
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+%Name: David 
+%StudentNumber: 251004930
+
+dat = readtable("diamonds.csv");
+
+% a) 
+
+summary(dat) 
+
+%They (the numberical values) are not comparable units due to the varying
+%ranges between the varibles. 
+
+% b) 
+ss =  grpFix(datasample(readtable("diamonds.csv"),2000));
+
+
+% c) 
+[coeff,numscore,latent,tsquare,resultant] = pca(table2array(ss),'VariableWeights','variance');
+% d)
+
+% normalize the cofeffecitns of the vector 
+coef_norm = inv(diag(std(v))) * coeff ;
+
+pc1 = numscore(:,1);
+pc2 = numscore(:,2);
+pc3 = numscore(:,3);
+
+number = 7;
+
+
+[max2 maxtwo] = maxk(pc2,number);
+pc1_2max = pc1(maxtwo);
+
+[min2 mintwo] = mink(pc2,number); 
+
+[max1 max] = maxk(pc1,number);
+pc2_1max = pc2(max);
+
+[min1 minone] = mink(pc1,number);
+pc2_1min = pc2(minone);
+
+pc1_2min = pc1(mintwo);
+
+[max3 maxthree] = maxk(pc3,number);
+pc1_3max = pc2(maxthree);
+
+[min3 ] = mink(pc3,number);
+pc1_3min = pc2(idxmin3);
+
+% e) Plot the PCA on the first 2 principal component
+
+figure 
+scatter(pc1, pc2,200, 'MarkerFaceColor','red');
+alpha(0.1);
+grid();
+set(gca,'FontSize',20);
+
+figure 
+scatter3(pc1,pc2,pc3,200, 'MarkerFaceColor','red');
+alpha(0.1);
+set(gca,'FontSize',20);
+ 
+figure(); 
+pareto(resultant); 
+
+fprintf("The first three components are responsible for  %0.2f % varience of the dataset given \n",sum(resultant(1:3)));
+
+%this is a lot as it covers more than the majority of the varience, in just
+%three of the prinicpal componens 
+
+function data =  grpFix(ss)
+ss.cut = grp2idx(ss.cut);
+ss.clarity = grp2idx(ss.clarity);
+ss.color =  grp2idx(ss.color);
+data = ss;
+end
+
+
+##### SOURCE END #####
+--></body></html>
