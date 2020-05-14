@@ -1,9 +1,8 @@
-##Intro to Stats + Data Visualization + Data Analysis 
 
-###Introduction 
+## Introduction
 This repo stores my work for an intro level course to data science. It includes data cleaning and clearing, plotting, principal component analysis, multi-dimmensional-scaling, linear regression, bi-variate and multi-variate logistic regression, various clustering techniques including:Agglomerative methods, K-Means, Spectral. Classification via the Receiver operating characteristic (ROC) curve and Maximum Likelihood Estimation.    
 
-##Examples
+## Examples
 ###### _Figure 1.1: Classical Multi-Dimensional Scaling, showing grouping based on Pulsar status._
 ![mds](mds.png)
 
