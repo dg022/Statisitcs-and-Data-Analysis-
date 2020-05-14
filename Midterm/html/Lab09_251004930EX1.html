@@ -1,0 +1,212 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab09_251004930EX1</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-03-27"><meta name="DC.source" content="Lab09_251004930EX1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">D)</a></li><li><a href="#3">E)</a></li><li><a href="#4">F)</a></li><li><a href="#5">G)</a></li><li><a href="#6">H)</a></li><li><a href="#7">I)</a></li></ul></div><pre class="codeinput"><span class="comment">% A)</span>
+load <span class="string">humanactivity.mat</span>;
+
+<span class="comment">% B)</span>
+nObs = table(<span class="string">'Size'</span>, [1,5],<span class="string">'VariableTypes'</span>,{<span class="string">'int32'</span>,<span class="string">'int32'</span>,<span class="string">'int32'</span>,<span class="string">'int32'</span>,<span class="string">'int32'</span>},<span class="string">'VariableNames'</span>,actnames);
+nObs{1,1} = size((actid(actid == 1)),1);
+nObs{1,2} = size((actid(actid == 2)),1);
+nObs{1,3} = size((actid(actid == 3)),1);
+nObs{1,4} = size((actid(actid == 4)),1);
+nObs{1,5} = size((actid(actid == 5)),1);
+
+<span class="comment">% C)</span>
+rng(1234);
+
+n = size(feat,1);
+idxNum = randi(n, 1, 1000);
+dataTat = feat(idxNum,:);
+id = actid(idxNum);
+</pre><h2 id="2">D)</h2><pre class="codeinput">D = 1*squareform(pdist(dataTat));
+
+<span class="comment">% applying MDS analysis</span>
+MDS = cmdscale(D, 2);
+figure;
+
+
+scatter(MDS(:,1), MDS(:,2), id);
+</pre><img vspace="5" hspace="5" src="Lab09_251004930EX1_01.png" alt=""> <h2 id="3">E)</h2><pre class="codeinput"><span class="comment">% 5 is the most logiical choice, as there are five activites.</span>
+</pre><h2 id="4">F)</h2><pre class="codeinput"><span class="comment">%Taken from lecutre script, doing all five algormoretive clustering</span>
+<span class="comment">%anlaysis</span>
+<span class="comment">% By putting it an array, adn iterating htoigh the options</span>
+waysofClustering = [<span class="string">"complete"</span>  <span class="string">"single"</span>  <span class="string">"average"</span>  <span class="string">"centroid"</span> <span class="string">"ward"</span>];
+subploti = 1;
+figure;
+<span class="keyword">for</span> index = waysofClustering
+
+    LonAnalysis = linkage(D,index);
+
+    clusterx = cluster(LonAnalysis,<span class="string">'MaxClust'</span>,5);
+    subplot(3,2,subploti);
+
+    gscatter(MDS(:,1),MDS(:,2),clusterx);
+
+    subploti = subploti + 1;
+<span class="keyword">end</span>
+
+subplot(2,3,6);
+gscatter(MDS(:,1), MDS(:,2), id);
+</pre><pre class="codeoutput">Warning: Non-monotonic cluster tree -- the centroid linkage is probably not
+appropriate. 
+</pre><img vspace="5" hspace="5" src="Lab09_251004930EX1_02.png" alt=""> <h2 id="5">G)</h2><pre class="codeinput">close <span class="string">all</span>;
+figure;
+
+clustersaNALYSIS = kmeans(D,5);
+gscatter(MDS(:,1),MDS(:,2),clustersaNALYSIS);
+</pre><img vspace="5" hspace="5" src="Lab09_251004930EX1_03.png" alt=""> <h2 id="6">H)</h2><pre class="codeinput"><span class="comment">%I couldnt not figure this one out</span>
+</pre><h2 id="7">I)</h2><pre class="codeinput">close <span class="string">all</span>;
+
+<span class="comment">%Clustering is an intresting analyssi tool, in this caseif was not</span>
+<span class="comment">%effective as it thought it would be. Only when the activites are differnt</span>
+<span class="comment">%entirely, does clustering show relevent informaiton. Otherwise it is</span>
+<span class="comment">%ineffective.</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+
+% A) 
+load humanactivity.mat;
+
+% B) 
+nObs = table('Size', [1,5],'VariableTypes',{'int32','int32','int32','int32','int32'},'VariableNames',actnames);
+nObs{1,1} = size((actid(actid == 1)),1);
+nObs{1,2} = size((actid(actid == 2)),1);
+nObs{1,3} = size((actid(actid == 3)),1);
+nObs{1,4} = size((actid(actid == 4)),1);
+nObs{1,5} = size((actid(actid == 5)),1);
+
+% C) 
+rng(1234);
+
+n = size(feat,1);
+idxNum = randi(n, 1, 1000);
+dataTat = feat(idxNum,:);
+id = actid(idxNum);
+
+%% D) 
+
+D = 1*squareform(pdist(dataTat));
+
+% applying MDS analysis
+MDS = cmdscale(D, 2);
+figure;
+
+
+scatter(MDS(:,1), MDS(:,2), id);
+
+%% E) 
+
+% 5 is the most logiical choice, as there are five activites. 
+
+%% F) 
+
+
+%Taken from lecutre script, doing all five algormoretive clustering
+%anlaysis
+% By putting it an array, adn iterating htoigh the options
+waysofClustering = ["complete"  "single"  "average"  "centroid" "ward"];
+subploti = 1;
+figure;
+for index = waysofClustering
+    
+    LonAnalysis = linkage(D,index);
+    
+    clusterx = cluster(LonAnalysis,'MaxClust',5);
+    subplot(3,2,subploti);
+    
+    gscatter(MDS(:,1),MDS(:,2),clusterx);
+    
+    subploti = subploti + 1;
+end
+
+subplot(2,3,6);
+gscatter(MDS(:,1), MDS(:,2), id);
+
+%% G) 
+close all;
+figure;
+
+clustersaNALYSIS = kmeans(D,5);
+gscatter(MDS(:,1),MDS(:,2),clustersaNALYSIS);
+
+%% H) 
+%I couldnt not figure this one out
+
+%% I) 
+close all;
+
+%Clustering is an intresting analyssi tool, in this caseif was not
+%effective as it thought it would be. Only when the activites are differnt
+%entirely, does clustering show relevent informaiton. Otherwise it is
+%ineffective. 
+
+
+##### SOURCE END #####
+--></body></html>

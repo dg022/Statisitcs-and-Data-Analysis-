@@ -1,0 +1,25 @@
+Information for bike_trips.csv
+
+day            : Day of the year the rental was made (1 = Jan 1st, 2 = Jan 2nd, etc.)
+station_id_star: Identification number of the station where the bike was rented from (start of the ride)
+station_id_end : Identification number of the station where the bike was returned (end of the ride)
+t_start        : Time, in minutes from midnight, the bike was rented (for example, 8:00AM = 480 minutes = 8 x 60 min)
+t_end          : Time, in minutes from midnight, the bike was returned
+
+
+Information for bike_weather.csv
+
+day   : Day of the year (1 = Jan 1st, 2 = Jan 2nd, etc.)
+w_code: Numerical code for the weather that day. 1 = "Sunny", 2 = "Cloudy", 3 = "Light Rain", 4 = "Storm"
+
+
+
+Information for bike_stations.csv
+
+First row : Name of the bike station
+Second row: Identification number of the bike station
+
+
+
+
+
