@@ -5,19 +5,19 @@ This repo stores my work for an intro level course to data science. It includes 
 
 ##Examples
 ###### _Figure 1.1: Classical Multi-Dimensional Scaling, showing grouping based on Pulsar status._
-![mds](./mds.png?raw=true "MDS")
+![mds](mds.png)
 
 ###### _Figure 1.2: Ward clustering, similar grouping compared to MDS of pulsar data._
-![mds](./ward.png?raw=true "MDS")
+![mds](ward.png)
 
 ###### _Figure 2.1: Ad-Hoc testing using Mult-Comp after ANOVA testing._
-![mds](./adhoc.png?raw=true "MDS")
+![mds](adhoc.png)
 
 ###### _Figure 3.1: Bi-Plot showing  results of principal component analysis, shows varibles most responsible for variance, signified by magnitude of line._
-![mds](./biplot.png?raw=true "MDS")
+![mds](biplot.png)
 
 ###### _Figure 4.1: Receiving Operating Characteristic Curve, showing FPR TPR rates for various threshholds chosen._
-![mds](./roc.png?raw=true "MDS")
+![mds](roc.png)
 
 ###### _Figure 6.1: Linear Regression._
-![mds](./linreg.png?raw=true "MDS")
+![mds](linreg.png)
